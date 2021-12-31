@@ -19,6 +19,12 @@ var log = logging.Logger("core/commands")
 var ErrNotOnline = errors.New("this command must be run in online mode. Try running 'ipfs daemon' first")
 
 const (
+	// FIXME: Introuduce here config and repo flags.
+	RepoOption  = "repo-dir"
+	// FIXME(BLOCKING): Now --config actually means config file and not the
+	//  entire repo directory. This breaks the current API, we may need to use
+	//  an entire different name for the (new and now correct) config argument.
+	//  Maybe config-file?
 	ConfigOption  = "config"
 	DebugOption   = "debug"
 	LocalOption   = "local" // DEPRECATED: use OfflineOption

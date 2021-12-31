@@ -287,7 +287,8 @@ func readIpfsConfig(repoRoot *string) (bootstrap []string, peers []peer.AddrInfo
 		return
 	}
 
-	cfgPath, err := config.Filename(*repoRoot)
+	// FIXME: Review this case and how it's used.
+	cfgPath, err := config.Filename(*repoRoot, "")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		return

@@ -294,8 +294,10 @@ func makeExecutor(req *cmds.Request, env interface{}) (cmds.Executor, error) {
 }
 
 func getRepoPath(req *cmds.Request) (string, error) {
-	repoOpt, found := req.Options["config"].(string)
+	repoOpt, found := req.Options[corecmds.RepoOption].(string)
 	if found && repoOpt != "" {
+		// FIXME: We should probably invoke here the Filename option from
+		//  go-ipfs-config and from now on have actual paths.
 		return repoOpt, nil
 	}
 

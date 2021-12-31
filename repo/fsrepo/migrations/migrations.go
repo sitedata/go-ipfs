@@ -120,7 +120,8 @@ func ReadMigrationConfig(repoRoot string) (*config.Migration, error) {
 		Migration config.Migration
 	}
 
-	cfgPath, err := config.Filename(repoRoot)
+	// FIXME: Review this case and how it's used.
+	cfgPath, err := config.Filename(repoRoot, "")
 	if err != nil {
 		return nil, err
 	}
